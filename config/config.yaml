@@ -1,0 +1,44 @@
+# Configuration for the AI Content Automation OS
+
+# API Gateway
+api_gateway:
+  port: 8080
+
+# Orchestration Service
+orchestration_service:
+  port: 8081
+
+# Ingestion Service
+ingestion_service:
+  port: 8082
+
+# Video Assembly Service
+video_assembly_service:
+  port: 8083
+
+# Posting Service
+posting_service:
+  port: 8084
+
+# Analytics Service
+analytics_service:
+  port: 8085
+
+# AI Services
+ai_services:
+  script_intelligence:
+    port: 5001
+  visual_generation:
+    port: 5002
+    qwen_api_key: "YOUR_QWEN_API_KEY"
+  audio_engine:
+    port: 5003
+
+# Databases
+databases:
+  postgres:
+    host: "localhost"
+    port: 5432
+    user: "user"
+    password: "password"
+    dbname: "ai_content_os"
