@@ -1,3 +1,49 @@
+from image_generator import generate_image
+from video_generator import generate_video
+from storage import save_image, save_video, encode_image
+from approval import ask_for_approval
+import requests
+
+prompt = input("Enter image prompt: ")
+
+# 1 Generate image
+image_binary = generate_image(prompt)
+
+# 2 Save image
+image_path = save_image(image_binary)
+
+# 3 Ask approval
+approved = ask_for_approval(image_path)
+
+if not approved:
+    print("Regenerate with new prompt.")
+    exit()
+
+# 4 Encode
+encoded = encode_image(image_path)
+
+# 5 Generate video
+video_url = generate_video(encoded, "Cinematic motion")
+
+# 6 Download video
+video_binary = requests.get(video_url).content
+final_path = save_video(video_binary)
+
+print("Final video saved at:", final_path)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 from fastapi import FastAPI
 
